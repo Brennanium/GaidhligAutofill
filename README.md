@@ -1,0 +1,35 @@
+# GaidhligAutofill
+
+
+## Setting up ARCOSG with nltk
+
+1) Add the 'gd-parole.map' file to /~/nltk_data/taggers/universal_tagset
+2) Find the file '__init__.py' in /~/Library/Python/3.7/lib/python/site-packages/nltk/corpus/__init__.py
+3) Open the file with a text editor
+4) Add the following lines to the file, under the code for 'Brown':
+
+"""
+arcosg = LazyCorpusLoader(
+	'arcosg',
+	CategorizedTaggedCorpusReader,
+	r'.*\.txt',
+	cat_file='cats.prn',
+	tagset='-gd-parole',
+	encoding='utf-8',
+)
+"""
+
+5) Save the file
+
+Initiate ARCOSG with the following code in Python:
+
+"""
+>>> import nltk
+>>> from nltk.corpus import arcosg
+>>> arcosg.tagged_words()
+[('[3]', 'XSC'), ('ach', 'CC'), ('bha', 'V-S'), ...]
+>>> arcosg.tagged_words(tagset='universal')
+[('[3]', 'X'), ('ach', 'CONJ'), ('bha', 'VERB'), ...]
+"""
+
+If this fails, try restarting Python and reimporting nltk.
