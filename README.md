@@ -1,5 +1,6 @@
 # GaidhligAutofill
 
+https://github.com/Brennanium/GaidhligAutofill
 
 ## Setting up GaidhligAutofill in pipenv
 1) Install pipenv (run `brew install pipenv` on MacOS)
